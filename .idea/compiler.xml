@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="25">
+      <module name="build-logic" target="25" />
+      <module name="build-logic.main" target="25" />
+      <module name="build-logic.test" target="25" />
+      <module name="hse-backend.app" target="21" />
+      <module name="hse-backend.app.main" target="21" />
+      <module name="hse-backend.app.test" target="21" />
+      <module name="hse-backend.list" target="21" />
+      <module name="hse-backend.list.main" target="21" />
+      <module name="hse-backend.list.test" target="21" />
+      <module name="hse-backend.utilities" target="21" />
+      <module name="hse-backend.utilities.main" target="21" />
+      <module name="hse-backend.utilities.test" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
