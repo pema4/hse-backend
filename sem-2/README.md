@@ -1,4 +1,5 @@
 # Работа с сетью, Socket, ServerSocket
 
-Полезные ссылки:
-## https://www.rfc-editor.org/rfc/rfc9110.html
+Полезные ссылки/литература:
+* первые главы Java Network Programming, Fourth Edition by Elliotte Rusty Harold
+* альтернатива `java.io` - https://square.github.io/okio/
