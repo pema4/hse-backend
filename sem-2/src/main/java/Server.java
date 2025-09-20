@@ -1,39 +1,31 @@
-import module java.base;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.net.ServerSocket;
+import java.util.Scanner;
+import java.util.concurrent.Executors;
 
-void main(String[] args) {
-    int port = switch (args.length) {
-        case 0 -> 8080;
-        case 1 -> Integer.parseInt(args[0]);
-        default -> {
-            IO.println("Usage: java Server.java [port]");
-            Runtime.getRuntime().exit(0);
-            throw new AssertionError("inaccessible");
+class Server {
+
+    public static void main(String[] args) throws IOException {
+        var executor = Executors.newVirtualThreadPerTaskExecutor();
+
+        try (var serverSocket = new ServerSocket(8080)) {
+            while (true) {
+                var socket = serverSocket.accept();
+                System.out.println("Accepted " + socket);
+                executor.submit(() -> {
+                    try {
+                        Scanner scanner = new Scanner(socket.getInputStream());
+                        var string = scanner.nextLine();
+                        System.out.println("Received " + string);
+                        PrintStream printStream = new PrintStream(socket.getOutputStream());
+                        printStream.println("Received " + string);
+                        printStream.flush();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+            }
         }
-    };
-
-    startServerThread(port);
-}
-
-private void startServerThread(int port) {
-    Thread serverThread = Thread.ofVirtual().name("server").start(() -> acceptConnections(port));
-    Thread shutdownHook = Thread.ofVirtual().name("shutdown-hook").unstarted(() -> {
-        IO.println("[server] Exiting, initiating graceful shutdown...");
-        serverThread.interrupt();
-        try {
-            serverThread.join(Duration.ofSeconds(5));
-        } catch (InterruptedException e) {
-            IO.println("[server] Forcing shutdown");
-        }
-    });
-    Runtime.getRuntime().addShutdownHook(shutdownHook);
-
-    try {
-        serverThread.join();
-    } catch (Throwable e) {
-        throw new AssertionError("inaccessible");
     }
-}
-
-private void acceptConnections(int port) {
-    IO.println("[server] Starting server on port " + port);
 }
