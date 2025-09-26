@@ -6,3 +6,4 @@ build
 
 # Ignore IDEA local build system files
 .idea/**
+out

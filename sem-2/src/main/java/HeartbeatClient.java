@@ -1,11 +1,8 @@
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintStream;
 import java.net.Socket;
-import java.util.Scanner;
-import java.util.concurrent.ThreadLocalRandom;
 
-class PingPongClient {
+class HeartbeatClient {
 
     public static void main(String[] args) throws IOException {
         try (var socket = new Socket("localhost", 8080)) {
