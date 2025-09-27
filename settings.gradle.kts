@@ -7,7 +7,10 @@
  */
 
 rootProject.name = "hse-backend"
+
 val semProjects = rootProject.projectDir
-    .listFiles { it.isDirectory && "sem-\\d+".toRegex() in it.name }
+    .listFiles()!!
+    .filter { it.isDirectory && "sem-\\d+".toRegex() in it.name }
     .map { it.name }
-include(*semProjects.toTypedArray())
+    .toTypedArray()
+include(*semProjects)
