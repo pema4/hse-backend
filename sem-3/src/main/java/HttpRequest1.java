@@ -2,7 +2,10 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 class HttpRequest1 {
 
@@ -21,7 +24,15 @@ class HttpRequest1 {
         ) {
             out.println(request);
 
-            // TODO
+            var status = scanner.nextLine();
+            System.out.println(status);
+            var headers = new ArrayList<String>();
+            var line = scanner.nextLine();
+            while (!line.isEmpty()) {
+                headers.add(line);
+                line = scanner.nextLine();
+            }
+            System.out.println(headers.stream().collect(Collectors.joining("\n")));
         }
     }
 }

@@ -7,7 +7,6 @@
 1. [HttpRequest1](./src/main/java/HttpRequest1.java) — как выглядит HTTP-запрос через сокет
 2. [HttpRequest2](./src/main/java/HttpRequest2.java) — работа со встроенным `HttpClient`
 3. [HttpServerExample](./src/main/java/HttpServerExample.java) — работа со встроенным `HttpServer`
-4. [PollingClient](./src/main/java/HttpServerExample.java)
 
 ## Полезные ссылки/литература
 
