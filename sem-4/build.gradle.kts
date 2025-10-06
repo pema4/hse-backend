@@ -17,6 +17,16 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    implementation("org.eclipse.jetty:jetty-server:12.1.1")
+    implementation("org.eclipse.jetty:jetty-jmx:12.1.1")
+    implementation("org.eclipse.jetty.ee11:jetty-ee11-webapp:12.1.1")
+    implementation("org.eclipse.jetty.ee11:jetty-ee11-websocket-jakarta-server:12.1.1")
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.20.0")
+}
+
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
