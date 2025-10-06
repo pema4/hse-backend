@@ -5,8 +5,12 @@ import java.util.Optional;
 
 public interface TodoRepository {
     Optional<Todo> find(long id);
-    Collection<Todo> findAll(long id);
+
+    Collection<Todo> findAll();
+
     void delete(long id);
+
     void update(Todo todo);
-    void create(Todo todo);
+
+    Todo create(Todo todo);
 }

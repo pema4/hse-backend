@@ -7,14 +7,25 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class TodoClient {
-    void main(String[] args) {
+    void main(String[] args) throws IOException, InterruptedException {
         try (var httpClient = HttpClient.newHttpClient()) {
-            var req = HttpRequest.newBuilder(URI.create("http://localhost:8080/health"))
+            var postRequest = HttpRequest.newBuilder(URI.create("http://localhost:8080/todo/create"))
+                    .POST(HttpRequest.BodyPublishers.ofString("""
+                            {
+                              "text": "My todo item"
+                            }
+                            """))
                     .build();
-            var res = httpClient.send(req, HttpResponse.BodyHandlers.ofString());
-            IO.println(res.body());
-        } catch (IOException | InterruptedException e) {
-            throw new RuntimeException(e);
+            var postResponse = httpClient.send(postRequest, HttpResponse.BodyHandlers.ofString());
+            IO.println("POST Response: " + postResponse);
+            IO.println("POST Headers: " + postResponse.headers().map());
+            IO.println("POST Body: " + postResponse.body());
+
+            var getRequest = HttpRequest.newBuilder(URI.create("http://localhost:8080/todo/1")).build();
+            var getResponse = httpClient.send(getRequest, HttpResponse.BodyHandlers.ofString());
+            IO.println("GET Response: " + getResponse);
+            IO.println("GET Headers: " + getResponse.headers());
+            IO.println("GET Body: " + getResponse.body());
         }
     }
 }

@@ -1,19 +1,13 @@
 package todo.domain;
 
-import java.time.ZonedDateTime;
-import java.util.UUID;
+import org.jetbrains.annotations.Nullable;
 
-// TodoRepository
-// GET /todo/1023
-// PUT /todo/1023
-// POST /todo/create
-// DELETE /todo/1024
-// GET /todo
+import java.time.ZonedDateTime;
 
 public record Todo(
-        long id,
+        @Nullable Long id, // nullable
         String text,
         ZonedDateTime creationDate,
-        ZonedDateTime completionDate
+        @Nullable ZonedDateTime completionDate // nullable
 ) {
 }
