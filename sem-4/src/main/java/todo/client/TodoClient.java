@@ -9,7 +9,7 @@ import java.net.http.HttpResponse;
 public class TodoClient {
     void main(String[] args) {
         try (var httpClient = HttpClient.newHttpClient()) {
-            var req = HttpRequest.newBuilder(URI.create("http://localhost:8080/todo"))
+            var req = HttpRequest.newBuilder(URI.create("http://localhost:8080/health"))
                     .build();
             var res = httpClient.send(req, HttpResponse.BodyHandlers.ofString());
             IO.println(res.body());

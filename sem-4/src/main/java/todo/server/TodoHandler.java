@@ -12,7 +12,7 @@ import org.eclipse.jetty.util.Callback;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
-public class HealthHandler extends Handler.Abstract.NonBlocking {
+public class TodoHandler extends Handler.Abstract.NonBlocking {
     @Override
     public boolean handle(Request request, Response response, Callback callback) {
         HttpMethod httpMethod = HttpMethod.fromString(request.getMethod());

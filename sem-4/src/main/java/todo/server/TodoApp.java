@@ -5,6 +5,7 @@ import org.eclipse.jetty.server.CustomRequestLog;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
+import org.eclipse.jetty.server.handler.DebugHandler;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
 
 import java.util.List;
@@ -23,7 +24,10 @@ public class TodoApp {
 
         var handlerSequence = new Handler.Sequence();
         handlerSequence.setHandlers(handlers());
-        server.setHandler(handlerSequence);
+
+        var debugHandler = new DebugHandler(handlerSequence);
+        debugHandler.setOutputStream(System.out);
+        server.setHandler(debugHandler);
 
         CustomRequestLog requestLog = new CustomRequestLog(System.out::println, CustomRequestLog.EXTENDED_NCSA_FORMAT);
         server.setRequestLog(requestLog);
