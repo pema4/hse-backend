@@ -21,8 +21,6 @@ dependencies {
     implementation("org.eclipse.jetty:jetty-server:12.1.1")
     implementation("org.eclipse.jetty:jetty-jmx:12.1.1")
     implementation("org.eclipse.jetty.ee11:jetty-ee11-webapp:12.1.1")
-    implementation("org.eclipse.jetty.ee11:jetty-websocket-jetty-api:12.1.1")
-    implementation("org.eclipse.jetty.ee11:jetty-websocket-jetty-server:12.1.1")
 
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
     implementation("com.fasterxml.jackson.core:jackson-databind:2.20.0")
