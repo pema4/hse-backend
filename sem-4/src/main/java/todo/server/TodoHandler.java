@@ -15,15 +15,6 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 public class TodoHandler extends Handler.Abstract.NonBlocking {
     @Override
     public boolean handle(Request request, Response response, Callback callback) {
-        HttpMethod httpMethod = HttpMethod.fromString(request.getMethod());
-        HttpURI uri = request.getHttpURI();
-        if (httpMethod != HttpMethod.GET || !uri.getPath().equals("/health")) {
-            return false;
-        }
-
-        response.setStatus(HttpStatus.OK_200);
-        response.getHeaders().add(MimeTypes.Type.TEXT_PLAIN.getContentTypeField(UTF_8));
-        response.write(true, BufferUtil.toBuffer("Healthy", UTF_8).compact(), callback);
         return true;
     }
 }
