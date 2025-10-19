@@ -2,7 +2,7 @@
 
 Материалы к семинарам.
 
-Репозиторий можно склонировать через `git clone --recursive`.
+Репозиторий можно склонировать через `git clone --recursive https://github.com/pema4/hse-backend`.
 
 ## 1 семестр
 
@@ -10,4 +10,4 @@
 2. [работа с сетью, сокеты](./sem-2)
 3. [HTTP](./sem-3)
 4. [HTTP Server](./sem-4)
-5. [Git](./sem-5)
+5. [Git](./sem-5) (добавлен в этот репозиторий как submodule)
