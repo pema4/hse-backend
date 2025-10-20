@@ -7,11 +7,31 @@ plugins {
 }
 
 dependencies {
-    implementation("org.apache.commons:commons-text")
-    implementation(project(":utilities"))
+    implementation(project(":domain"))
+
+    implementation(libs.jetty.jmx)
+    implementation(libs.jetty.server)
+    implementation(libs.jetty.ee11.webapp)
+    implementation(libs.jackson.databind)
 }
 
 application {
     // Define the main class for the application.
-    mainClass = "org.example.app.App"
+    mainClass = "org.example.todos.app.TodoApp"
+}
+
+sourceSets.register("integrationTest") {
+    java.srcDir("src/integrationTest/java")
+    resources.srcDir("src/integrationTest/resources")
+    compileClasspath += sourceSets.main.get().compileClasspath
+    runtimeClasspath += sourceSets.main.get().runtimeClasspath
+}
+
+tasks.register<Test>("integrationTest") {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+
+    val integrationTest by sourceSets.getting
+    testClassesDirs = integrationTest.output.classesDirs
+    classpath = integrationTest.runtimeClasspath
 }
