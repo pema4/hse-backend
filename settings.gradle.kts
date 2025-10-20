@@ -11,6 +11,9 @@ rootProject.name = "hse-backend"
 val semProjects = rootProject.projectDir
     .listFiles()!!
     .filter { it.isDirectory && "sem-\\d+".toRegex() in it.name }
+    .filterNot { it.name == "sem-6" }
     .map { it.name }
     .toTypedArray()
 include(*semProjects)
+
+includeBuild("sem-6")
