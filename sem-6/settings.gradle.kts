@@ -11,4 +11,4 @@ plugins {
 }
 
 rootProject.name = "hse-backend-sem-6"
-include("app", "list", "utilities")
+include("app", "client", "domain")

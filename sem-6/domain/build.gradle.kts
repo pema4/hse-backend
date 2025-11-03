@@ -7,5 +7,7 @@ plugins {
 }
 
 dependencies {
-    api(project(":list"))
+    // https://mvnrepository.com/artifact/org.jetbrains/annotations
+
+    implementation(libs.annotations)
 }
