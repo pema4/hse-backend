@@ -20,6 +20,7 @@ repositories {
 dependencies {
     implementation(libs.spring.context)
     testImplementation(libs.spring.test)
+
     implementation("org.eclipse.jetty:jetty-server:12.1.1")
     implementation("org.eclipse.jetty:jetty-jmx:12.1.1")
     implementation("org.eclipse.jetty.ee11:jetty-ee11-webapp:12.1.1")
