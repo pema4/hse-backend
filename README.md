@@ -12,3 +12,6 @@
 4. [HTTP Server](./sem-4)
 5. [Git](./sem-5) (добавлен в этот репозиторий как submodule)
 6. [Build Systems](./sem-6)
+7. [Spring Framework](./sem-7)
+8. [Spring MVC](./sem-8-9)
+9. [Spring Boot](./sem-8-9)
