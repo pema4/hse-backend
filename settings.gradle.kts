@@ -8,12 +8,13 @@
 
 rootProject.name = "hse-backend"
 
-val semProjects = rootProject.projectDir
-    .listFiles()!!
-    .filter { it.isDirectory && "sem-\\d+".toRegex() in it.name }
-    .filterNot { it.name == "sem-6" }
-    .map { it.name }
-    .toTypedArray()
-include(*semProjects)
+include(
+    ":sem-2",
+    ":sem-3",
+    ":sem-4",
+    ":sem-5",
+    ":sem-7",
+    ":sem-8-9:app",
+)
 
 includeBuild("sem-6")

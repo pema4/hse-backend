@@ -7,9 +7,7 @@
 plugins {
     // Apply the java Plugin to add support for Java.
     java
-
-    // Apply the java-library plugin for API and implementation separation.
-    `java-library`
+    application
 }
 
 repositories {
@@ -18,18 +16,12 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.spring.context)
+    implementation(libs.spring.webmvc)
+    implementation(libs.jetty.server)
+    implementation(libs.jetty.ee11.webapp)
+    implementation(libs.jackson.databind)
+
     testImplementation(libs.spring.test)
-
-    implementation("org.eclipse.jetty:jetty-server:12.1.1")
-    implementation("org.eclipse.jetty:jetty-jmx:12.1.1")
-    implementation("org.eclipse.jetty.ee11:jetty-ee11-webapp:12.1.1")
-
-    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.20.0")
-
-    // https://mvnrepository.com/artifact/org.jetbrains/annotations
-    implementation("org.jetbrains:annotations:26.0.2-1")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
